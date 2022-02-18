@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block head %}
+<script src="{% static 'quiz/js/form_validator.js' %}"></script>
+{% endblock %}
+{% block content %}
+<h1>Quiz:</h1>
+<p>Fill in all the questions</p>
+<form method="POST" id="quiz-form">
+    {% csrf_token %}
+
+    {{form |crispy}}
+    <button type="submit" class="btn btn-primary" id="quiz-submit">Submit</button>
+</form>
+{% endblock content %}

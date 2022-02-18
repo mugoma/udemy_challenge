@@ -1,3 +1,6 @@
 
 #Do not upload the secret key
 /udemy/key.txt
+
+.vscode
+db.sqlite3
