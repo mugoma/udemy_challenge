@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load crispy_forms_field %}
+{% block title %}Error Retreiving Form {% endblock title %}
+{% block content %}
+<h1 class="display-5">Error Retreiving Form</h1>
+<p>We were unable to reteive the form from the api link provided.</p>
+<a class="btn-primary btn" href="{% url 'quiz:quiz_view' %}?quiz_link={{quiz_link}}">Retry</a>
+<a class="btn-primary btn" href="{% url 'quiz:link_form' %}">New Quiz</a>
+{% endblock content %}

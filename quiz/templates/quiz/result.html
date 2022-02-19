@@ -2,10 +2,16 @@
 {% load crispy_forms_field %}
 
 {% block content %}
-<h1>Quiz Results</h1>
-<p>Score: {{score}}</p>
-{% for field in form %}
-{% crispy_field field %}
-<p><strong>Correct answer : {{field.field.answer}}</strong></p>
-{% endfor %}
+<h1 class="display-5">Quiz Results</h1>
+<p class="display-6">Score: {{score}}/ {{total}}</p>
+<fieldset disabled="disabled">
+    {% for field in form %}
+    {% crispy_field field %}
+    {% if field.field.correct == False%}
+    <p class="text-danger"><strong>Correct answer : {{field.field.answer}}</strong></p>
+    {% else %}
+    <p class="text-success"><strong>Correct{% endif %}</strong></p>
+    {% endfor %}
+</fieldset>
+<a class="btn-primary btn" href="{{request.get_full_path}}">Retake</a>
 {% endblock content %}

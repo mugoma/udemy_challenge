@@ -17,7 +17,7 @@ class QuizTextMixin:
 
 
 class QuizURLForm(forms.Form):
-    quiz_url = forms.URLField()
+    quiz_url = forms.URLField(label="Quiz Link")
 
 
 class QuizRadioChoiceField(QuizTextMixin, forms.ChoiceField):
@@ -34,7 +34,7 @@ def generate_generic_form(question_list):
     field_dict = {}
     i = 1
     for question in question_list:
-        choices = ((value, key) for key, value in question['choices'].items())
+        choices = ((choice,choice) for choice in question['choices'])
         # if question.get("randomize_choices", False):
         #    random.shuffle(choices)
         if question.get("multi_answer", False):
